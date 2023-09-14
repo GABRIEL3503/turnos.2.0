@@ -91,3 +91,13 @@ button.ocupado {
       font-weight: 700;
       color: rgb(59, 59, 59);
   }
+
+  table{
+    width: 383px;
+  }
+
+  .swiper-slide{
+    height: 1900px;
+    width: 996px;
+    margin-right: 30px;
+  }
