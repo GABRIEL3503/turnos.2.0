@@ -80,11 +80,12 @@ button.ocupado {
     }
 
     td{
+      font-size: 58px!important;
       color: white;
       font-weight: 400;
     }
     button {
-      font-size: 65;
+      font-size: 85;
       border: none;
       border-radius: 9px;
       padding: 9px;
