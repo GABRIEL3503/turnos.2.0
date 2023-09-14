@@ -1,11 +1,11 @@
 
 
 button.libre {
-    background-color: green;
+    background-color: rgb(65, 209, 65);
 }
 
 button.ocupado {
-    background-color: red;
+    background-color: rgb(255, 47, 47);
 }
 
 .bodyturno {
@@ -78,3 +78,16 @@ button.ocupado {
     border: 1px solid #ddd;
     margin-bottom: 5px;
     }
+
+    td{
+      color: white;
+      font-weight: 400;
+    }
+    button {
+      border: none;
+      border-radius: 9px;
+      padding: 9px;
+      margin: 6px;
+      font-weight: 700;
+      color: rgb(59, 59, 59);
+  }
