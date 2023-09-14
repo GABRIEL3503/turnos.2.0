@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Tu función para autenticar al usuario
   function authenticate(password) {
-    const correctPassword = "tuContraseñaSegura";
+    const correctPassword = "admin";
     if (password === correctPassword) {
       localStorage.setItem("authenticated", "true");
       return true;
