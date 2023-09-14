@@ -61,3 +61,20 @@ button.ocupado {
   .ocupado{
     pointer-events: none;
   }
+
+  h2{
+    color: white;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;}
+
+    tr{
+      align-items: center;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    padding: 3px;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    }
