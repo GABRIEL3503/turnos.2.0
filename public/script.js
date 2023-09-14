@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     button.style.backgroundColor = newStatus === "libre" ? "green" : "red";
 
     // Actualizar en la base de datos
-    fetch(`http://localhost:3000/api/turnos/${turnoId}`, {
+    fetch(`https://tuturno-20.onrender.com/api/turnos/${turnoId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
   //   solicitud al backend para obtener todos los turnos y luego los mostraremos en la página.
 
 
-  fetch('http://localhost:3000/api/turnos')
+  fetch('https://tuturno-20.onrender.com/api/turnos')
     .then(response => response.json())
     .then(data => {
       data.forEach(turno => {
@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const turnoId = statusButton.getAttribute("data-id");
 
             // Obtener la información del cliente desde el backend
-            fetch(`http://localhost:3000/api/clientes/${turnoId}`)
+            fetch(`https://tuturno-20.onrender.com/api/clientes/${turnoId}`)
               .then(response => {
                 console.log(response.headers.get('Content-Type'));
                 if (response.status === 200 && response.headers.get('Content-Type').includes('application/json')) {
@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       if (deleteButton) {
                         deleteButton.addEventListener('click', () => {
                           // Eliminar el cliente
-                          fetch(`http://localhost:3000/api/clientes/${turnoId}`, {
+                          fetch(`https://tuturno-20.onrender.com/api/clientes/${turnoId}`, {
                             method: 'DELETE',
                           })
                             .then(response => response.json())
@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       const nombre = document.getElementById('swal-input1').value;
                       const telefono = document.getElementById('swal-input2').value;
                       const email = document.getElementById('swal-input3').value;
-                      fetch(`http://localhost:3000/api/clientes`, {
+                      fetch(`https://tuturno-20.onrender.com/api/clientes`, {
                         method: 'POST',
                         headers: {
                           'Content-Type': 'application/json',
