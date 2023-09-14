@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <title>Reserva de Turnos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bodyturno">
+  <button id="login-button">Login</button>
+
+
+    <div id="schedule">
+        <div class="swiper-container mySwiper">
+          <div class="swiper-wrapper">
+            <!-- Aquí se insertarán los días y horarios dinámicamente -->
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+      
+
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="script.js"></script>
+  <script>   // Inicialización de Swiper
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });</script>
+</body>
+</html>
