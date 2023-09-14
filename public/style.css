@@ -84,6 +84,7 @@ button.ocupado {
       font-weight: 400;
     }
     button {
+      font-size: 45;
       border: none;
       border-radius: 9px;
       padding: 9px;
