@@ -103,3 +103,12 @@ button.ocupado {
     width: 996px;
     margin-right: 30px;
   }
+  .swal2-popup{
+height: 35vh!important;
+width: 84vw!important;
+font-size: 30px;
+  }
+
+  .swal2-title{
+    font-size: 52px!important;
+  }
