@@ -70,6 +70,7 @@ button.ocupado {
     font-size: 28px;}
 
     tr{
+      width: 667px;
       align-items: center;
     border-radius: 5px;
     display: flex;
