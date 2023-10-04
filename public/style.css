@@ -122,18 +122,18 @@ font-size: 30px;
     justify-content: center;
     align-items: center;
 background-image: url(img/backfr.jpg);
-background-position: center;
+/* background-position: center; */
     /* background-size: cover; */
     background-repeat: no-repeat;
     background-color: rgba(0, 0, 0, 0.377);
     background-blend-mode: overlay;
-    height: 100vh;
+    height: 130vh;
     margin: 0;
     padding: 0;
   }
 
   ul {
-    margin-top: 152px;
+    margin-top: -300px;
     list-style: none;
     padding: 0;
   }
@@ -141,13 +141,16 @@ background-position: center;
     margin: 20px 0;
   }
   a {
+    
+    display: flex;
+    align-items: center;
     border: 2px solid;
     text-decoration: none;
     color: white;
     background-color: #5c5c5c1c;
     padding: 7px 15px;
         border-radius: 5px;
-    font-size: 10px;
+    font-size: 20px;
     transition: background-color 0.3s ease;
   }
   a:hover {
