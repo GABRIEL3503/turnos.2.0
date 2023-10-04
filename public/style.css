@@ -127,7 +127,7 @@ background-image: url(img/backfr.jpg);
     background-repeat: no-repeat;
     background-color: rgba(0, 0, 0, 0.377);
     background-blend-mode: overlay;
-    height: 130vh;
+    height: 100vh;
     margin: 0;
     padding: 0;
   }
