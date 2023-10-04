@@ -167,3 +167,7 @@ background-image: url(img/backfr.png);
     background-color: rgba(0, 0, 0, 0.24); 
     z-index: -1;
   }
+
+  nosotros{
+    background-image: url(img/beanstalk-dark.webp);
+  }
