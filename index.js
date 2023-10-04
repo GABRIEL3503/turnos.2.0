@@ -3,6 +3,11 @@ const sqlite3 = require('sqlite3').verbose();
 const app = express();
 const port = 3000;
 
+app.get('/', (req, res) => {
+  res.redirect('/menu.html');
+});
+
+
 // Para servir archivos estáticos desde la carpeta 'public'
 app.use(express.static('public'));
 
@@ -43,25 +48,45 @@ app.put('/api/turnos/:id', (req, res) => {
   });
 });
 
-
-// Insertar un nuevo cliente y asociarlo con un turno
 app.post('/api/clientes', (req, res) => {
   const { nombre, telefono, email, turnoId } = req.body;
-  const sql = `INSERT INTO clientes (nombre, telefono, email) VALUES (?, ?, ?)`;
-  db.run(sql, [nombre, telefono, email], function(err) {
+
+  // Verificar si el turno existe
+  const checkTurnoSql = `SELECT * FROM turnos WHERE id = ?`;
+  db.get(checkTurnoSql, [turnoId], (err, row) => {
     if (err) {
       return res.status(400).json({ error: err.message });
     }
-    const clienteId = this.lastID;
-    const updateSql = `UPDATE turnos SET cliente_id = ? WHERE id = ?`;
-    db.run(updateSql, [clienteId, turnoId], function(err) {
+
+    if (!row) {
+      // El turno no existe, crearlo
+      const insertTurnoSql = `INSERT INTO turnos (id, estado) VALUES (?, 'libre')`;
+      db.run(insertTurnoSql, [turnoId], function(err) {
+        if (err) {
+          return res.status(400).json({ error: err.message });
+        }
+      });
+    }
+
+    // Insertar el cliente (asumiendo que el turno ahora existe)
+    const insertClienteSql = `INSERT INTO clientes (nombre, telefono, email) VALUES (?, ?, ?)`;
+    db.run(insertClienteSql, [nombre, telefono, email], function(err) {
       if (err) {
         return res.status(400).json({ error: err.message });
       }
-      res.json({ message: "Cliente insertado", clienteId: clienteId });
+      const clienteId = this.lastID;
+      const updateTurnoSql = `UPDATE turnos SET cliente_id = ? WHERE id = ?`;
+      db.run(updateTurnoSql, [clienteId, turnoId], function(err) {
+        if (err) {
+          return res.status(400).json({ error: err.message });
+        }
+        res.json({ message: "Cliente insertado y turno actualizado", clienteId: clienteId });
+      });
     });
   });
 });
+
+
 
 // Obtener la información del cliente basada en el id del turno
 app.get('/api/clientes/:turnoId', (req, res) => {

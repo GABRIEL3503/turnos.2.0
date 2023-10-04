@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     button.style.backgroundColor = newStatus === "libre" ? "green" : "red";
 
     // Actualizar en la base de datos
-    fetch(`https://tuturno-20.onrender.com/api/turnos/${turnoId}`, {
+    fetch(`http://localhost:3000/api/turnos/${turnoId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -101,7 +101,8 @@ document.addEventListener("DOMContentLoaded", function () {
   //   solicitud al backend para obtener todos los turnos y luego los mostraremos en la página.
 
 
-  fetch('https://tuturno-20.onrender.com/api/turnos')
+ fetch('http://localhost:3000/api/turnos')
+
     .then(response => response.json())
     .then(data => {
       data.forEach(turno => {
@@ -127,7 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
       // Obtener la fecha actual y calcular las fechas para cada día de la semana
       const hoy = new Date();
       const diasDeLaSemana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-
       // Reorganizar el array para que el día actual sea el primero
       const diaActual = diasDeLaSemana[hoy.getDay()];
       const indexDiaActual = diasDeLaSemana.indexOf(diaActual);
@@ -182,9 +182,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
           clientButton.addEventListener("click", function () {
             const turnoId = statusButton.getAttribute("data-id");
+            console.log("ID del turno:", turnoId);
 
             // Obtener la información del cliente desde el backend
-            fetch(`https://tuturno-20.onrender.com/api/clientes/${turnoId}`)
+            fetch(`http://localhost:3000/api/clientes/${turnoId}`)
               .then(response => {
                 console.log(response.headers.get('Content-Type'));
                 if (response.status === 200 && response.headers.get('Content-Type').includes('application/json')) {
@@ -194,7 +195,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
               })
               .then(cliente => {
-                if (cliente && cliente.nombre && cliente.telefono && cliente.email) {
+                console.log("Cliente devuelto del servidor:", cliente);
+
+                if (cliente && (cliente.nombre || cliente.telefono || cliente.email)) {
+
                   // Si hay un cliente asociado, mostrar la información en un alerta
                   Swal.fire({
                     title: 'Información del Cliente',
@@ -208,7 +212,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       if (deleteButton) {
                         deleteButton.addEventListener('click', () => {
                           // Eliminar el cliente
-                          fetch(`https://tuturno-20.onrender.com/api/clientes/${turnoId}`, {
+                          fetch(`http://localhost:3000/api/clientes/${turnoId}`, {
                             method: 'DELETE',
                           })
                             .then(response => response.json())
@@ -238,7 +242,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       const nombre = document.getElementById('swal-input1').value;
                       const telefono = document.getElementById('swal-input2').value;
                       const email = document.getElementById('swal-input3').value;
-                      fetch(`https://tuturno-20.onrender.com/api/clientes`, {
+                      fetch(`http://localhost:3000/api/clientes`, {
                         method: 'POST',
                         headers: {
                           'Content-Type': 'application/json',
@@ -302,7 +306,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch(error => console.error('Error:', error));
 });
-updateUI();
+// updateUI();
 
 
 

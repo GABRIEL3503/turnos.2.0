@@ -1,4 +1,6 @@
-
+body{
+  margin: 0;
+}
 
 button.libre {
     background-color: rgb(65, 209, 65);
@@ -9,7 +11,7 @@ button.ocupado {
 }
 
 .bodyturno {
-    background-image: url(img/ideogram\ \(4\).jpeg);
+    background-image: url(img/ideogram\ \(54\).jpeg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -113,4 +115,52 @@ font-size: 30px;
 
   .swal2-title{
     font-size: 52px!important;
+  }
+
+  .bodimenu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+background-image: url(img/backfr.jpg);
+background-position: center;
+    /* background-size: cover; */
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.377);
+    background-blend-mode: overlay;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    margin-top: 152px;
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    margin: 20px 0;
+  }
+  a {
+    border: 2px solid;
+    text-decoration: none;
+    color: white;
+    background-color: #5c5c5c1c;
+    padding: 7px 15px;
+        border-radius: 5px;
+    font-size: 10px;
+    transition: background-color 0.3s ease;
+  }
+  a:hover {
+    background-color: #64646471;
+  }
+
+ .bodyturno::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.24); 
+    z-index: -1;
   }
