@@ -1,7 +1,9 @@
 body{
   margin: 0;
 }
-
+*{
+  font-family: 'Work Sans', sans-serif;
+}
 button.libre {
     background-color: rgb(65, 209, 65);
 }
@@ -122,8 +124,8 @@ font-size: 30px;
     justify-content: center;
     align-items: center;
 background-image: url(img/backfr.png);
-/* background-position: center; */
-    /* background-size: cover; */
+background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
     background-color: rgba(0, 0, 0, 0.377);
     background-blend-mode: overlay;
