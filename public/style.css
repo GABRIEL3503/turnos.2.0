@@ -135,7 +135,8 @@ background-position: center;
   }
 
   ul {
-    margin-top: -300px;
+    margin-top: 255px;
+
     list-style: none;
     padding: 0;
   }
@@ -144,6 +145,8 @@ background-position: center;
   }
   a {
     
+    align-items: center;
+    text-align: center;
     display: flex;
     align-items: center;
     border: 2px solid;
@@ -151,9 +154,11 @@ background-position: center;
     color: white;
     background-color: #5c5c5c1c;
     padding: 7px 15px;
-        border-radius: 5px;
+    border-radius: 5px;
     font-size: 20px;
     transition: background-color 0.3s ease;
+    justify-content: center;
+    
   }
   a:hover {
     background-color: #64646471;
